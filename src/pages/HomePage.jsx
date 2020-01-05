@@ -13,19 +13,6 @@ const HomePage = () => {
     getHouses()
   }, [])
 
-  return (
-    <>
-      <header>All Houses</header>
-      <ul>
-        {houses.map(house => {
-          return (
-            <li>
-              <Link to={`/house/${house.id}`}>{house.houseName}</Link>
-            </li>
-          )
-        })}
-      </ul>
-    </>
-  )
+  return <></>
 }
 export default HomePage

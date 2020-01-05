@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const StudentPage = props => {
+const AllStudentsPage = props => {
   const [students, setStudents] = useState([])
   const [name, setName] = useState('')
   const [houseId, setHouseId] = useState('')
@@ -16,12 +16,12 @@ const StudentPage = props => {
       houseId: props.match.params.id,
     })
 
-    // setStudents(prev => {
-    //   return {
-    //     ...prev,
-    //     students: [...prev.students.concat(resp.data)],
-    //   }
-    // })
+    setStudents(prev => {
+      return {
+        ...prev,
+        students: [...prev.students.concat(resp.data)],
+      }
+    })
   }
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const StudentPage = props => {
         <input
           type="text"
           value={name}
-          placeholder="Enter a Student Name"
+          placeholder="Enter Student Name"
           onChange={e => setName(e.target.value)}
         />
         <input
@@ -67,4 +67,4 @@ const StudentPage = props => {
   )
 }
 
-export default StudentPage
+export default AllStudentsPage
